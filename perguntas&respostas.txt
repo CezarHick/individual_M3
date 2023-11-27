@@ -1,0 +1,67 @@
+1. Quais são as entidades necessárias?
+
+Empresa
+Colaborador
+Tecnologias
+Tecnologia_Empresa
+
+
+2. Quais são os principais campos e seus respectivos tipos?
+
+Empresa:
+
+    id_empresa (INT, PRIMARY KEY, AUTO_INCREMENT)
+    nome_empresa (VARCHAR(100), NOT NULL)
+    endereco (VARCHAR(100), NOT NULL)
+    telefone (VARCHAR(15), NOT NULL)
+
+Colaborador:
+
+    id_colaborador (INT, PRIMARY KEY, AUTO_INCREMENT)
+    nome (VARCHAR(100), NOT NULL)
+    cargo (VARCHAR(100), NOT NULL)
+    id_empresa (INT, NOT NULL, FOREIGN KEY)
+
+Tecnologias:
+
+    id_tecnologias (INT, PRIMARY KEY, AUTO_INCREMENT)
+    area (VARCHAR(100), NOT NULL)
+    nome_tecnologia (VARCHAR(100), NOT NULL)
+
+Tecnologia_Empresa:
+
+    id_empresa (INT, NOT NULL, FOREIGN KEY)
+    id_tecnologias (INT, NOT NULL, FOREIGN KEY)
+    nivel_utilizacao (INT NOT NULL) -- 1 a 5 (Sendo 1 pouco usado e 5 muito usado)
+
+
+3. Como essas entidades estão relacionadas?
+
+Empresa possui uma relação com Colaborador por meio da chave estrangeira id_empresa.
+Tecnologias possui uma relação com Tecnologia_Empresa por meio da chave estrangeira id_tecnologias.
+Empresa e Tecnologias são conectadas à tabela de associação Tecnologia_Empresa através das chaves estrangeiras id_empresa e id_tecnologias.
+
+
+4. Simule 2 registros para cada entidade:
+
+Empresa:
+
+    1, 'Umbrella', '71 Casa da Bruxa', '2289-6765'
+    2, 'Xurraskin', '371 Lalaland', '3245-4324'
+
+Colaborador:
+
+    1, 'Will Smith', 'Developer', 1
+    2, 'Taylor Swift', 'Data Scientist', 2
+
+Tecnologias:
+
+    1, 'Web Development', 'HTML/CSS'
+    2, 'Data Science', 'Python'
+
+Tecnologia_Empresa:
+
+    1, 1, 4
+    1, 2, 3
+    2, 1, 5
+    2, 2, 2
