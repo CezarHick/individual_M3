@@ -1,4 +1,4 @@
-# README do Banco de Dados ResiliaData
+# Banco de Dados ResiliaData
 
 ## Visão Geral
 
